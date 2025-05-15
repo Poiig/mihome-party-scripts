@@ -47,16 +47,6 @@ macOS 脚本会自动更新以下目录：
 - `~/Library/Application Support/mihomo-party/work`
 - `work` 目录下的所有子目录
 
-### Python 脚本（跨平台）
-
-```bash
-# 安装依赖
-pip install -r requirements.txt
-
-# 运行脚本
-python update_rules_data.py
-```
-
 所有脚本都会自动完成：
 
 1. 创建必要的目录（temp、log）
@@ -92,8 +82,6 @@ COUNTRY_URL=https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/c
 mihomo-party/
 ├── update_rules_data.bat    # Windows批处理脚本
 ├── update_rules_data.sh     # macOS Shell脚本
-├── update_rules_data.py     # Python跨平台脚本
-├── requirements.txt         # Python依赖
 ├── config.ini               # 配置文件
 ├── temp/                    # 临时文件目录
 └── log/                     # 日志目录
@@ -117,22 +105,15 @@ mihomo-party/
 1. 首先尝试使用 curl 下载
 2. 如果 curl 失败，尝试使用 wget
 
-#### Python 脚本（跨平台）：
-
-1. 首先尝试使用 requests 库下载
-2. 如果 requests 失败，尝试使用 urllib
-3. 如果 urllib 失败，尝试使用系统命令行工具
-
 可以查看日志文件了解具体失败原因。
 
 ### 常见问题解决
 
-| 问题类型            | 解决方法                                                                                                    |
-| ------------------- | ----------------------------------------------------------------------------------------------------------- |
-| **网络连接问题**    | • 检查网络连接<br>• 确认是否可以访问 GitHub<br>• 考虑使用代理或镜像站点                                     |
-| **权限问题**        | • 确保对目标目录有写入权限<br>• Windows: 以管理员身份运行<br>• macOS: 使用 sudo 或调整目录权限              |
-| **文件占用**        | • 确保目标文件没有被其他程序占用<br>• 关闭可能使用这些文件的程序                                            |
-| **Python 相关问题** | • 确保已安装所需依赖<br>• 检查 Python 版本是否为 3.6+<br>• 如遇到 SSL 错误，可能需要更新 Python 的 SSL 证书 |
+| 问题类型         | 解决方法                                                                                       |
+| ---------------- | ---------------------------------------------------------------------------------------------- |
+| **网络连接问题** | • 检查网络连接<br>• 确认是否可以访问 GitHub<br>• 考虑使用代理或镜像站点                        |
+| **权限问题**     | • 确保对目标目录有写入权限<br>• Windows: 以管理员身份运行<br>• macOS: 使用 sudo 或调整目录权限 |
+| **文件占用**     | • 确保目标文件没有被其他程序占用<br>• 关闭可能使用这些文件的程序                               |
 
 ## ⚠️ 注意事项
 
@@ -140,5 +121,4 @@ mihomo-party/
 - macOS 脚本使用 `~/Library/Application Support/` 目录
 - Windows 批处理脚本需要确保系统支持 PowerShell 命令
 - macOS Shell 脚本需要确保有执行权限 (`chmod +x`)
-- Python 脚本需要 Python 3.6+ 环境
 - 建议定期运行以保持规则文件更新
