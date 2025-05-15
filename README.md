@@ -1,0 +1,1 @@
+# mihome-party-scripts
